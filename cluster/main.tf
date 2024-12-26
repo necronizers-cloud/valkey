@@ -21,7 +21,7 @@ locals {
     "primary.persistence.labels.section"   = "primary"
 
     // Replica Nodes Configuration
-    "replica.replicaCount" = "3"
+    "replica.replicaCount" = "1"
 
     // Replica Nodes Resource Limits
     "replica.resources.limits.cpu"      = "500m"
@@ -40,8 +40,8 @@ locals {
 
     // Replica Nodes Autoscaling
     "replica.autoscaling.hpa.enabled"      = true
-    "replica.autoscaling.hpa.minReplicas"  = 3
-    "replica.autoscaling.hpa.maxReplicas"  = 10
+    "replica.autoscaling.hpa.minReplicas"  = 1
+    "replica.autoscaling.hpa.maxReplicas"  = 5
     "replica.autoscaling.hpa.targetCPU"    = "90"
     "replica.autoscaling.hpa.targetMemory" = "90"
 

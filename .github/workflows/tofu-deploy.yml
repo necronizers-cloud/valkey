@@ -27,33 +27,33 @@ on:
 jobs:
   namespace_deploy:
     name: Valkey Namespace Deployment onto Self Hosted K3d Cluster
-    uses: PhotoAtom/automations/.github/workflows/tofu-deploy.yml@main
+    uses: necronizers-cloud/automations/.github/workflows/tofu-deploy.yml@main
     with:
       deployment_name: Valkey Namespace
       folder_path: namespace
-      runners: photoatom
+      runners: cloud
     secrets: inherit
       
 
   certificates_deploy:
     needs: [namespace_deploy]
     name: Valkey Certificates Deployment onto Self Hosted K3d Cluster
-    uses: PhotoAtom/automations/.github/workflows/tofu-deploy.yml@main
+    uses: necronizers-cloud/automations/.github/workflows/tofu-deploy.yml@main
     with:
       deployment_name: Valkey Certificates
       folder_path: certificates
-      runners: photoatom
+      runners: cloud
     secrets: inherit
       
 
   cluster_deploy:
     needs: [certificates_deploy]
     name: Valkey Database Deployment onto Self Hosted K3d Cluster
-    uses: PhotoAtom/automations/.github/workflows/tofu-deploy.yml@main
+    uses: necronizers-cloud/automations/.github/workflows/tofu-deploy.yml@main
     with:
       deployment_name: Valkey Database
       folder_path: cluster
-      runners: photoatom
+      runners: cloud
     secrets: inherit
       
 
